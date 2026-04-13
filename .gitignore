@@ -7,15 +7,18 @@ desktop.ini
 .vscode/
 .idea/
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-venv/
-.env
-
-# Preview files (generated)
-_preview_*.png
-
-# Node (if http-server was used locally)
+# Node
 node_modules/
+
+# ---- Arquivos do projeto (NÃO são o site) ----
+# Templates markdown
+*.md
+!README.md
+
+# Scripts e PDFs
+*.py
+*.pdf
+
+# Criativos e previews
+CRIATIVOS/
+_preview_*.png
