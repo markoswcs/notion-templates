@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Templates Notion | Organize sua Vida</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #304663;
+    --blue-light: #3d5a7a;
+    --blue-glow: rgba(48, 70, 99, 0.35);
+    --black: #000000;
+    --dark: #0a0a0a;
+    --dark2: #111111;
+    --dark3: #161616;
+    --white: #ffffff;
+    --gray: #8a8a8a;
+    --gray2: #3a3a3a;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .nav-cta {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 0.55rem 1.3rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .nav-cta:hover { background: var(--blue-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(48,70,99,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(48,70,99,0.25);
+    border: 1px solid rgba(48,70,99,0.5);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow span { width: 6px; height: 6px; background: #5b9bd5; border-radius: 50%; display: inline-block; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 5.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 860px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: #5b9bd5;
+  }
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--gray);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+    padding: 1rem 2.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.1);
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+  .hero-price-hint {
+    font-size: 0.88rem;
+    color: var(--gray);
+  }
+  .hero-price-hint strong { color: #fff; font-weight: 700; }
+
+  /* SOCIAL PROOF */
+  .proof-section {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .proof-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem 1.6rem;
+    max-width: 300px;
+    position: relative;
+  }
+  .proof-card::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem; left: 1rem;
+    font-size: 3rem;
+    color: var(--blue);
+    font-weight: 900;
+    line-height: 1;
+  }
+  .proof-text {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    padding-top: 0.5rem;
+  }
+  .proof-author {
+    font-size: 0.75rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .proof-avatar {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 2rem; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #5b9bd5;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .centered { text-align: center; margin: 0 auto; }
+
+  /* TEMPLATES GRID */
+  .templates-section { background: var(--dark); }
+  .templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 4rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .template-card {
+    background: var(--dark);
+    padding: 2.2rem;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .template-card:hover { background: var(--dark2); }
+  .template-icon {
+    font-size: 2rem;
+    margin-bottom: 1.1rem;
+    display: block;
+  }
+  .template-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .template-pain {
+    font-size: 0.82rem;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+  }
+  .template-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+  .template-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    background: rgba(48,70,99,0.3);
+    border: 1px solid rgba(48,70,99,0.5);
+    padding: 0.2rem 0.7rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #7aafd4;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* WHAT'S INSIDE */
+  .list-section { background: var(--black); }
+  .templates-list {
+    max-width: 600px;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+  }
+  .list-item:last-child { border-bottom: none; }
+  .list-emoji { font-size: 1.3rem; min-width: 2rem; text-align: center; }
+  .list-name { font-weight: 600; }
+  .list-num {
+    margin-left: auto;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  /* PRICING */
+  .pricing-section {
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .price-card {
+    background: var(--dark2);
+    border: 1px solid rgba(48,70,99,0.6);
+    border-radius: 20px;
+    padding: 3rem 3.5rem;
+    max-width: 480px;
+    width: 100%;
+    margin-top: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), #5b9bd5);
+  }
+  .price-badge {
+    display: inline-block;
+    background: rgba(48,70,99,0.4);
+    border: 1px solid rgba(48,70,99,0.7);
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #7aafd4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .price-from {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 0.2rem;
+    text-decoration: line-through;
+  }
+  .price-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .price-currency {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.6rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .price-value {
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .price-cents {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0.9rem;
+  }
+  .price-sub {
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+  }
+  .price-features {
+    list-style: none;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    text-align: left;
+  }
+  .price-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+  }
+  .check {
+    width: 20px; height: 20px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+  .btn-buy {
+    display: block;
+    width: 100%;
+    background: var(--blue);
+    color: #fff;
+    padding: 1.1rem;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+  .btn-buy:hover { background: var(--blue-light); transform: translateY(-1px); }
+  .price-guarantee {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-top: 1rem;
+  }
+
+  /* FAQ */
+  .faq-section { background: var(--black); }
+  .faq-list {
+    max-width: 700px;
+    margin: 3rem auto 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-q {
+    padding: 1.3rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.9);
+    list-style: none;
+  }
+  .faq-q:hover { color: #fff; }
+  .faq-q .arrow {
+    font-size: 0.7rem;
+    color: var(--gray);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+  .faq-a {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+  }
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding-bottom: 1.3rem;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--dark);
+    text-align: center;
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(48,70,99,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin-bottom: 1.2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta p {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* RESPONSIVE */
+
+  /* Laptops menores / tablets landscape */
+  @media (max-width: 1024px) {
+    .templates-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 800px;
+    }
+    .final-cta { padding: 6rem 2rem; }
+  }
+
+  /* Tablets portrait */
+  @media (max-width: 768px) {
+    nav { padding: 0.9rem 1.2rem; }
+    .nav-brand { font-size: 0.75rem; letter-spacing: 0.08em; }
+    .nav-cta { padding: 0.5rem 1rem; font-size: 0.78rem; }
+
+    .hero { padding: 7rem 1.5rem 5rem; }
+    .hero h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
+    .hero p { font-size: 0.95rem; margin-bottom: 2rem; }
+    .hero-eyebrow { font-size: 0.7rem; padding: 0.35rem 0.8rem; }
+
+    .proof-section { padding: 3rem 1.5rem; gap: 0.8rem; }
+    .proof-card { max-width: 100%; }
+
+    section { padding: 5rem 1.5rem; }
+    .section-title { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+    .section-sub { font-size: 0.92rem; }
+
+    .templates-grid {
+      grid-template-columns: 1fr 1fr;
+      margin-top: 3rem;
+    }
+    .template-card { padding: 1.8rem; }
+
+    .price-card { padding: 2.5rem 2rem; }
+    .price-value { font-size: 4.5rem; }
+    .price-cents { font-size: 1.6rem; }
+
+    .final-cta { padding: 5rem 1.5rem; }
+    .final-cta h2 { font-size: clamp(1.6rem, 5vw, 2.8rem); }
+
+    .faq-list { margin-top: 2rem; }
+    .faq-q { font-size: 0.88rem; padding: 1.1rem 0; }
+    .faq-a { font-size: 0.84rem; }
+  }
+
+  /* Smartphones */
+  @media (max-width: 640px) {
+    nav { padding: 0.8rem 1rem; }
+    .nav-cta { padding: 0.45rem 0.9rem; font-size: 0.75rem; white-space: nowrap; }
+
+    .hero { padding: 6.5rem 1.2rem 4rem; min-height: auto; }
+    .hero h1 { font-size: clamp(1.8rem, 8vw, 2.6rem); margin-bottom: 1rem; }
+    .hero p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem; }
+    .hero-eyebrow { font-size: 0.65rem; margin-bottom: 1.5rem; }
+    .hero-actions { flex-direction: column; gap: 0.8rem; }
+    .btn-primary { width: 100%; text-align: center; padding: 0.9rem 1.5rem; font-size: 0.95rem; }
+    .hero-price-hint { font-size: 0.82rem; }
+
+    .proof-section { flex-direction: column; align-items: center; padding: 2.5rem 1.2rem; gap: 0.8rem; }
+    .proof-card { max-width: 100%; width: 100%; }
+    .proof-text { font-size: 0.85rem; }
+
+    section { padding: 4rem 1.2rem; }
+    .section-label { font-size: 0.68rem; }
+    .section-title { font-size: clamp(1.4rem, 6vw, 1.9rem); }
+    .section-sub { font-size: 0.88rem; }
+
+    .templates-grid { grid-template-columns: 1fr; margin-top: 2.5rem; }
+    .template-card { padding: 1.6rem; }
+    .template-name { font-size: 1rem; }
+    .template-pain { font-size: 0.8rem; }
+    .template-desc { font-size: 0.84rem; }
+
+    .templates-list { margin-top: 2rem; }
+    .list-item { font-size: 0.88rem; padding: 0.85rem 0; gap: 0.8rem; }
+    .list-emoji { font-size: 1.1rem; min-width: 1.6rem; }
+    .list-name { font-size: 0.85rem; }
+
+    .price-card { padding: 2rem 1.3rem; margin-top: 2.5rem; border-radius: 16px; }
+    .price-badge { font-size: 0.68rem; padding: 0.25rem 0.7rem; }
+    .price-from { font-size: 0.8rem; }
+    .price-value { font-size: 4rem; }
+    .price-cents { font-size: 1.4rem; margin-top: 0.7rem; }
+    .price-currency { font-size: 1.2rem; }
+    .price-sub { font-size: 0.78rem; margin-bottom: 1.5rem; }
+    .price-features li { font-size: 0.84rem; gap: 0.6rem; }
+    .check { width: 18px; height: 18px; font-size: 0.6rem; }
+    .btn-buy { padding: 1rem; font-size: 0.95rem; border-radius: 8px; }
+    .price-guarantee { font-size: 0.72rem; }
+
+    .final-cta { padding: 4rem 1.2rem; }
+    .final-cta h2 { font-size: clamp(1.4rem, 7vw, 2.2rem); }
+    .final-cta p { font-size: 0.88rem; margin-bottom: 2rem; }
+    .final-cta .btn-primary { display: block !important; width: 100%; text-align: center; padding: 1rem 1.5rem !important; font-size: 0.95rem !important; }
+
+    .faq-q { font-size: 0.85rem; padding: 1rem 0; }
+    .faq-a { font-size: 0.82rem; }
+
+    footer { padding: 1.5rem 1rem; font-size: 0.72rem; }
+  }
+
+  /* Smartphones muito pequenos (iPhone SE, etc) */
+  @media (max-width: 380px) {
+    nav { padding: 0.7rem 0.8rem; }
+    .nav-brand { font-size: 0.68rem; }
+    .nav-cta { font-size: 0.7rem; padding: 0.4rem 0.7rem; }
+
+    .hero { padding: 6rem 1rem 3.5rem; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero p { font-size: 0.84rem; }
+    .hero-eyebrow { font-size: 0.6rem; padding: 0.3rem 0.6rem; }
+
+    section { padding: 3.5rem 1rem; }
+    .section-title { font-size: 1.3rem; }
+
+    .template-card { padding: 1.4rem; }
+    .price-card { padding: 1.5rem 1rem; }
+    .price-value { font-size: 3.5rem; }
+
+    .final-cta { padding: 3.5rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Templates Notion</span>
+  <a href="https://pay.kiwify.com.br/ORK9g49" class="nav-cta" target="_blank" rel="noopener">Quero por R$&nbsp;9,99</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><span></span> Promoção de lançamento · Vagas limitadas</div>
+  <h1>Chega de vida<br><em>desorganizada.</em></h1>
+  <p>10 templates prontos no Notion para você controlar finanças, estudos, hábitos, treinos e muito mais — só duplicar e usar.</p>
+  <div class="hero-actions">
+    <a href="https://pay.kiwify.com.br/ORK9g49" class="btn-primary" target="_blank" rel="noopener">Quero os 10 templates →</a>
+    <span class="hero-price-hint">por apenas <strong>R$&nbsp;9,99</strong> · acesso vitalício</span>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof-section">
+  <div class="proof-card">
+    <p class="proof-text">Os templates do notion faz uma diferença absurda 🙏🙏🙏 Vim aqui só agradecer mesmo kkkkk</p>
+    <div class="proof-author"><div class="proof-avatar">A</div> Cliente verificado</div>
+  </div>
+  <div class="proof-card">
+    <p class="proof-text">Markos libera logo esses templates de organização do notion POR FAVOR!</p>
+    <div class="proof-author"><div class="proof-avatar">K</div> @Katilogr</div>
+  </div>
+  <div class="proof-card">
+    <p class="proof-text">Cara e aqueles templates do notion? Vai liberar não?</p>
+    <div class="proof-author"><div class="proof-avatar">G</div> @usa.nws</div>
+  </div>
+</div>
+
+<!-- TEMPLATES -->
+<section class="templates-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">O que você leva</div>
+    <h2 class="section-title">10 templates que resolvem<br>10 dores reais</h2>
+    <p class="section-sub">Cada template foi pensado para um problema específico da sua vida. Sem enrolação, direto ao ponto.</p>
+
+    <div class="templates-grid">
+
+      <div class="template-card">
+        <span class="template-icon">💰</span>
+        <div class="template-name">Controle Financeiro Pessoal</div>
+        <div class="template-pain">"Chego no fim do mês sem dinheiro e não sei onde foi..."</div>
+        <div class="template-desc">Registre entradas, saídas e metas financeiras. Visualize para onde cada centavo vai e tome o controle do seu dinheiro de vez.</div>
+        <span class="template-tag">Finanças</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">📚</span>
+        <div class="template-name">Planner de Estudos Completo</div>
+        <div class="template-pain">"Estudo muito mas na prova em branco..."</div>
+        <div class="template-desc">Cronograma, metas por matéria, revisões espaçadas e acompanhamento de progresso. Tudo integrado para você estudar com inteligência.</div>
+        <span class="template-tag">Estudos</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">✅</span>
+        <div class="template-name">Rastreador de Hábitos</div>
+        <div class="template-pain">"Começo mil coisas e não consigo manter nenhuma..."</div>
+        <div class="template-desc">Acompanhe seus hábitos diariamente com visualização de sequências. Ver sua consistência cresce é o combustível que te faz continuar.</div>
+        <span class="template-tag">Hábitos</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">📅</span>
+        <div class="template-name">Planejador Semanal</div>
+        <div class="template-pain">"Segunda começa e já me sinto perdido com tudo que tenho que fazer..."</div>
+        <div class="template-desc">Organize sua semana com clareza. Prioridades, tarefas, compromissos e espaço para reflexão. Sua semana começa com propósito.</div>
+        <span class="template-tag">Produtividade</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">📖</span>
+        <div class="template-name">Minha Estante Virtual</div>
+        <div class="template-pain">"Leio mas esqueço tudo que aprendi em semanas..."</div>
+        <div class="template-desc">Registre os livros lidos, salve notas e citações importantes. Transforme cada leitura em conhecimento que realmente fica.</div>
+        <span class="template-tag">Leitura</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">🏋️</span>
+        <div class="template-name">Tracker de Treinos</div>
+        <div class="template-pain">"Vou à academia mas não consigo medir minha evolução..."</div>
+        <div class="template-desc">Registre séries, cargas e progressão. Veja sua evolução ao longo do tempo e nunca mais treine sem uma direção clara.</div>
+        <span class="template-tag">Saúde</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">✈️</span>
+        <div class="template-name">Planejador de Viagem</div>
+        <div class="template-pain">"Planejar viagem é um caos: aba aberta aqui, nota ali..."</div>
+        <div class="template-desc">Roteiro, checklist de malas, orçamento e reservas em um só lugar. Viaje mais leve e sem aquele estresse de esquecer algo importante.</div>
+        <span class="template-tag">Viagem</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">💼</span>
+        <div class="template-name">Dashboard Freelancer</div>
+        <div class="template-pain">"Tenho vários clientes e vivo perdendo controle dos projetos e cobranças..."</div>
+        <div class="template-desc">Gerencie clientes, projetos, prazos e receitas. Profissionalize sua operação sem precisar de ferramentas caras.</div>
+        <span class="template-tag">Trabalho</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">🍽️</span>
+        <div class="template-name">Planejador de Refeições</div>
+        <div class="template-pain">"Todo dia a mesma pergunta: o que vou comer hoje?"</div>
+        <div class="template-desc">Monte seu cardápio semanal, gere lista de compras automática e pare de desperdiçar comida e dinheiro.</div>
+        <span class="template-tag">Saúde</span>
+      </div>
+
+      <div class="template-card">
+        <span class="template-icon">📝</span>
+        <div class="template-name">Diário Pessoal</div>
+        <div class="template-pain">"Tenho muita coisa na cabeça mas nunca processo nada direito..."</div>
+        <div class="template-desc">Um espaço estruturado para reflexão diária. Registre gratidão, aprendizados e metas. Clareza mental começa aqui.</div>
+        <span class="template-tag">Bem-estar</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIST -->
+<section class="list-section">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <div class="section-label">Tudo incluso</div>
+    <h2 class="section-title">Os 10 templates<br>num único pacote</h2>
+    <div class="templates-list">
+      <div class="list-item"><span class="list-emoji">💰</span><span class="list-name">Controle Financeiro Pessoal</span><span class="list-num">01</span></div>
+      <div class="list-item"><span class="list-emoji">📚</span><span class="list-name">Planner de Estudos Completo</span><span class="list-num">02</span></div>
+      <div class="list-item"><span class="list-emoji">✅</span><span class="list-name">Rastreador de Hábitos</span><span class="list-num">03</span></div>
+      <div class="list-item"><span class="list-emoji">📅</span><span class="list-name">Planejador Semanal</span><span class="list-num">04</span></div>
+      <div class="list-item"><span class="list-emoji">📖</span><span class="list-name">Minha Estante Virtual</span><span class="list-num">05</span></div>
+      <div class="list-item"><span class="list-emoji">🏋️</span><span class="list-name">Tracker de Treinos</span><span class="list-num">06</span></div>
+      <div class="list-item"><span class="list-emoji">✈️</span><span class="list-name">Planejador de Viagem</span><span class="list-num">07</span></div>
+      <div class="list-item"><span class="list-emoji">💼</span><span class="list-name">Dashboard Freelancer</span><span class="list-num">08</span></div>
+      <div class="list-item"><span class="list-emoji">🍽️</span><span class="list-name">Planejador de Refeições</span><span class="list-num">09</span></div>
+      <div class="list-item"><span class="list-emoji">📝</span><span class="list-name">Diário Pessoal</span><span class="list-num">10</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label centered">Preço</div>
+  <h2 class="section-title centered">Promoção de lançamento</h2>
+  <p class="section-sub centered" style="margin:0 auto;">Esse preço não vai durar. Quando as vagas acabarem, o valor sobe.</p>
+
+  <div class="price-card">
+    <div class="price-badge">🔥 Oferta limitada</div>
+    <div class="price-from">de R$ 49,90</div>
+    <div class="price-main">
+      <span class="price-currency">R$</span>
+      <span class="price-value">9</span>
+      <span class="price-cents">,99</span>
+    </div>
+    <div class="price-sub">pagamento único · sem mensalidade</div>
+    <ul class="price-features">
+      <li><span class="check">✓</span> 10 templates prontos para usar</li>
+      <li><span class="check">✓</span> Acesso imediato após a compra</li>
+      <li><span class="check">✓</span> Acesso vitalício — nunca paga mais nada</li>
+      <li><span class="check">✓</span> Só duplicar e começar a usar</li>
+      <li><span class="check">✓</span> Funciona na versão gratuita do Notion</li>
+    </ul>
+    <a href="https://pay.kiwify.com.br/ORK9g49" class="btn-buy" target="_blank" rel="noopener">Quero meus 10 templates agora</a>
+    <p class="price-guarantee">🔒 Compra segura · Acesso imediato</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <div class="section-label">Dúvidas</div>
+    <h2 class="section-title">Perguntas frequentes</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Precisa pagar o Notion pra usar? <span class="arrow">▼</span></div>
+      <div class="faq-a">Não. Todos os templates funcionam normalmente na versão gratuita do Notion. Você não precisa de nenhuma assinatura extra.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Como recebo os templates após a compra? <span class="arrow">▼</span></div>
+      <div class="faq-a">O acesso é imediato. Assim que o pagamento é confirmado, você recebe o link para duplicar os templates direto para o seu Notion em segundos.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Posso usar em vários dispositivos? <span class="arrow">▼</span></div>
+      <div class="faq-a">Sim. O Notion funciona no celular, tablet e computador. Você acessa seus templates de onde quiser, quando quiser.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Preciso saber usar o Notion antes? <span class="arrow">▼</span></div>
+      <div class="faq-a">Não precisa. Os templates já vêm totalmente prontos. Você só duplica para sua conta e começa a preencher. É literalmente só duplicar e usar.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Esse preço é por quanto tempo? <span class="arrow">▼</span></div>
+      <div class="faq-a">Essa é uma promoção de lançamento totalmente limitada. Quando as vagas esgotarem, o valor volta ao preço cheio. Não tem data exata para acabar — pode ser hoje, pode ser amanhã.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Sua vida organizada<br>começa agora.</h2>
+  <p>10 templates. R$&nbsp;9,99. Acesso vitalício. Sem desculpa.</p>
+  <a href="https://pay.kiwify.com.br/ORK9g49" class="btn-primary" style="display:inline-block;font-size:1.05rem;padding:1.1rem 2.5rem;" target="_blank" rel="noopener">Quero os templates →</a>
+</section>
+
+<footer>
+  <p>Feito com dedicação · Templates Notion · 2025</p>
+</footer>
+
+<script>
+function toggle(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
